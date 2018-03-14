@@ -1,8 +1,8 @@
 {
-  "name": "vue-webpack-ssr-fully-featured",
+  "name": "droplet",
   "version": "0.0.5",
   "description": "",
-  "author": "Cristian Baldi",
+  "author": "Ajain Vivek",
   "license": "GPL-3.0",
   "private": true,
   "scripts": {

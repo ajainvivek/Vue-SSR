@@ -4,7 +4,7 @@ const compression = require("compression")
 const express = require("express")
 const app = express()
 
-const favicon = require('serve-favicon')
+const favicon = require("serve-favicon")
 
 const resolve = (file) => path.resolve(__dirname, file)
 
@@ -83,7 +83,7 @@ const render = (req, res, context) => {
 }
 
 app.use(compression({ threshold: 0 }))
-app.use(favicon('./static/favicon.png'))
+app.use(favicon("./static/favicon.png"))
 
 app.use("/dist", serve("./dist", true))
 app.use("/static", serve("./static", true))

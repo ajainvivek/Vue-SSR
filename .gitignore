@@ -6,3 +6,5 @@ selenium-debug.log
 test/e2e/reports
 test/unit/coverage
 phantomjsdriver.log
+yarn.lock
+yarn-error.log

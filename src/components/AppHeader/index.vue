@@ -1,10 +1,13 @@
-<template lang="pug">
-	header.AppHeader
-		router-link.AppHeader__link(to="/")
-			img.AppHeader__logo(src="~images/logo.png", alt="Logo")
-			div.AppHeader__name
-				h3.AppHeader__title Site Name
-				div.AppHeader__subtitle $ts("site_subtitle")
+<template>
+    <header class="AppHeader">
+        <router-link class="AppHeader__link" to="/" />
+        <img class="AppHeader__logo" src="~images/logo.png" alt="logo" />
+        <div class="AppHeader__name">
+            <h3 class="AppHeader__title">Site Name</h3>
+            <div class="AppHeader__subtitle">$ts("site_subtitle")</div>
+            <el-button>Default</el-button>
+        </div>    
+    </header>
 </template>
 
 <style lang="scss">

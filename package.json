@@ -81,6 +81,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "compression": "^1.7.0",
+    "element-ui": "^2.2.2",
     "es6-promise": "^4.1.1",
     "express": "^4.15.3",
     "lru-cache": "^4.1.0",

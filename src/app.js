@@ -6,6 +6,7 @@ import { createStore } from "./store"
 import { createRouter } from "./router"
 
 import App from "./App.vue"
+import "./element"
 
 
 import metaInfo from "./mixins/metaInfo"

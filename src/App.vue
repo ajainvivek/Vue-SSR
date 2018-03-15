@@ -30,7 +30,7 @@ noscript {
 </style>
 
 <script>
-import AppHeader from "components/AppHeader.vue"
+import AppHeader from "components/AppHeader"
 
 export default {
 	name: "App",

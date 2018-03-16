@@ -2,7 +2,7 @@
 
 ## Error Handling
 
-This project comes with [a mixin](../src/mixins/errorHandler.js) to help you handle and manage errors (mostly errors generated during the `asyncData` part of the code).
+This project comes with [a mixin](../client/mixins/errorHandler.js) to help you handle and manage errors (mostly errors generated during the `asyncData` part of the code).
 
 
 First of all you have to import the mixin and mount it in your component.

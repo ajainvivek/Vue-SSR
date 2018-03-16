@@ -11,7 +11,7 @@ const resolve = (file) => path.resolve(__dirname, file)
 const config = require("./config")
 const isProduction = config.isProduction
 
-const template = fs.readFileSync(resolve("./src/index.template.html"), "utf-8")
+const template = fs.readFileSync(resolve("./client/index.template.html"), "utf-8")
 
 const createRenderer = (bundle, options) => {
 	// https://github.com/vuejs/vue/blob/dev/packages/vue-server-renderer/README.md#why-use-bundlerenderer

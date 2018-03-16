@@ -25,7 +25,7 @@ const clientConfig = merge(base, {
 		}),
 		// generate output HTML
 		new HTMLPlugin({
-			template: "src/index.template.html",
+			template: "client/index.template.html",
 			minify: config.isProduction ? minifyOptions : {}
 		}),
 		new VueSSRClientPlugin()
@@ -42,7 +42,7 @@ if (config.isProduction) {
 		}),
 		// auto generate service worker
 		new SWPrecachePlugin({
-			cacheId: "vue-webpack-ssr-fully-featured",
+			cacheId: "droplet",
 			filename: "service-worker.js",
 			minify: true,
 
@@ -63,7 +63,7 @@ if (config.isProduction) {
 	)
 }
 
-if(!config.isTesting) {
+if (!config.isTesting) {
 	clientConfig.plugins.push(
 		// extract vendor chunks for better caching
 		// https://github.com/Narkoleptika/webpack-everything/commit/b7902f60806cf40b9d1abf8d6bb2a094d924fff7
@@ -80,9 +80,9 @@ if(!config.isTesting) {
 	)
 }
 
-if(config.isProduction) {
+if (config.isProduction) {
 	clientConfig.plugins.push(
-			new webpack.optimize.ModuleConcatenationPlugin()
+		new webpack.optimize.ModuleConcatenationPlugin()
 	)
 }
 

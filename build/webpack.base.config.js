@@ -10,8 +10,9 @@ const VueI18n = require("vue-i18n")
 const config = require("../config")
 
 const messages = {
-	main:	require(`../i18n/${config.language.filename}`),
-	fallback: config.fallbackLanguage ? require(`../i18n/${config.fallbackLanguage.filename}`) : null
+	main: require(`../i18n/${config.language.filename}`),
+	fallback: config.fallbackLanguage ?
+		require(`../i18n/${config.fallbackLanguage.filename}`) : null
 }
 
 Vue.use(VueI18n)
@@ -32,7 +33,7 @@ const commonPlugins = [
 		"LANGUAGE_ISRTL": config.language.isRTL
 	}),
 	new StyleLintPlugin({
-		files: ["src/**/*.vue", "src/**/*.scss"]
+		files: ["client/**/*.vue", "client/**/*.scss"]
 	})
 ]
 
@@ -62,7 +63,7 @@ module.exports = {
 		: "inline-source-map",
 
 	entry: {
-		app: "./src/entry-client.js"
+		app: "./client/entry-client.js"
 	},
 
 	output: {
@@ -74,20 +75,20 @@ module.exports = {
 	resolve: {
 		alias: {
 			"static": path.resolve(__dirname, "../static"),
-			"src": path.resolve(__dirname, "../src"),
-			"components": path.resolve(__dirname, "../src/components"),
-			"images": path.resolve(__dirname, "../src/images"),
-			"router": path.resolve(__dirname, "../src/router"),
-			"store": path.resolve(__dirname, "../src/store"),
-			"styles": path.resolve(__dirname, "../src/styles"),
-			"mixins": path.resolve(__dirname, "../src/mixins"),
-			"views": path.resolve(__dirname, "../src/views")
+			"client": path.resolve(__dirname, "../client"),
+			"components": path.resolve(__dirname, "../client/components"),
+			"images": path.resolve(__dirname, "../client/images"),
+			"router": path.resolve(__dirname, "../client/router"),
+			"store": path.resolve(__dirname, "../client/store"),
+			"styles": path.resolve(__dirname, "../client/styles"),
+			"mixins": path.resolve(__dirname, "../client/mixins"),
+			"views": path.resolve(__dirname, "../client/views")
 		},
-    extensions: ['.js', '.vue', '.scss']
+		extensions: [".js", ".vue", ".scss"]
 	},
 	resolveLoader: {
 		alias: {
-			'scss-loader': 'sass-loader'
+			"scss-loader": "sass-loader"
 		}
 	},
 	module: {
@@ -109,7 +110,7 @@ module.exports = {
 					},
 					preserveWhitespace: false,
 					postcss: [
-						require("autoprefixer")({browsers: ["last 3 versions"]}),
+						require("autoprefixer")({ browsers: ["last 3 versions"] }),
 						require("cssnano")
 					]
 				}

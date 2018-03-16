@@ -1,8 +1,6 @@
-# vue-webpack-ssr-fully-featured
+# Droplet
 
-A fully featured Vue.js boilerplate project that uses Vuex, vue-router, vue-i18n, Server Side Rendering and much, much more.
-
-This is intended as a starting point for medium/big sized projects but also as a quick reference on how to do common things in the Vue ecosystem.
+Dynamic theme builder using SSR using Vue, NodeJS.
 
 ## Features
 
@@ -44,22 +42,14 @@ This is intended as a starting point for medium/big sized projects but also as a
 * Fully customizable
 * In-depth documentation
 
-## Todo
-
-* Find a better, shorter name for the project
-* Vuex/Store
-	* [Modularize the store](https://vuex.vuejs.org/en/modules.html)
-		* Do we need this?
-* Transform into a `vue-cli` template
-	* Is it worth?
 
 ## Docs
 
 Quickstart:
 
 ```
-git clone https://github.com/crisbal/vue-webpack-ssr-fully-featured
-cd vue-webpack-ssr-fully-featured
+git clone https://github.com/ajainvivek/droplet
+cd droplet
 npm install
 npm run dev
 ```
@@ -74,12 +64,3 @@ Check out the [official documentation](docs/Index.md) for info on how to get sta
 
 Feel free to submit issues and pull requests, I will try to answer as soon as possible.
 
-## Thanks
-
-For mostly the build scripts and SSR we are using code from a few different repos:
-
-* [vuejs/vue-hackernews-2.0](https://github.com/vuejs/vue-hackernews-2.0)
-* [vuejs/pwa](https://github.com/vuejs/pwa/)
-* [Narkoleptika/webpack-everything](https://github.com/Narkoleptika/webpack-everything)
-
-The code for the build scripts and SSR was taken and changed for our needs.

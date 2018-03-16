@@ -1,7 +1,8 @@
 {
     "editor.formatOnSave": false,
     "[javascript]": {
-        "editor.formatOnSave": false,
+        "editor.formatOnSave": true,
+        "editor.tabSize": 4
     },
     "eslint.autoFixOnSave": true,
     "eslint.alwaysShowStatus": true

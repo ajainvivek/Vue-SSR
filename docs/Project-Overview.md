@@ -40,7 +40,7 @@ For detailed explaination check out the [Build Process](Build-Process.md) docume
 		* `webpack.server.config.js`, same as the client one but for the server
 	* `docs/`, documentation about the project
 	* `i18n/`, localization files
-	* `src/`, source file for the project
+	* `client/`, source file for the vue project
 		* `components/`, reusable Vue UI components
 		* `images/`, images used by the application
 			* These will be processed by webpack's `url-loader`

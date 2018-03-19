@@ -10,7 +10,10 @@ import Home from "views/Home" // include in the main bundle
 const NotFound = () => System.import("views/NotFound") // load dynamically when needed
 
 let routes = [
-	{ path: "/", component: Home }
+	{
+		path: "/", component: Home,
+		path: "/:theme", component: Home
+	}
 ]
 
 if (process.env.NODE_ENV !== "production") {

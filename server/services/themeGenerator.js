@@ -16,7 +16,7 @@ const constructTemplate = function(dom, template, root) {
 			element.firstChild.setAttribute([properties[i]], template.properties[properties[i]])
 		}
 	}
-	// Add inner html, if content exist 
+	// Add inner html, if content exist
 	if (template.content) {
 		element.firstChild.innerHTML = template.content
 	}
@@ -35,14 +35,34 @@ const constructTemplate = function(dom, template, root) {
 	return element
 }
 
-const constructScript = function(view) {
+const constructScript = function(view, meta) {
 	return `
         <script>
             export default {
-                name: "${view}"
+				name: "${view}",
+                meta() {
+					return {
+						title: "${meta.title}",
+						description: "${meta.description}"
+					}
+				}				
             }
         </script>
     `
+}
+
+const constructStyle = function(view, style) {
+	if (style) {
+		return `
+			<style lang="scss" scoped>
+				.${view} {
+					${style}
+				}
+			</style>	
+		`
+	} else {
+		return ""
+	}
 }
 
 module.exports = function() {
@@ -61,8 +81,10 @@ module.exports = function() {
 					const filepath = `client/views/${dir}/${file}.vue`
 					let fileContent = ""
 					const template = constructTemplate(dom, theme, true)
-					const script = constructScript(file)
+					const script = constructScript(file, theme.meta || {})
+					const style = constructStyle(file, theme.style || "")
 					fileContent += template
+					fileContent += style
 					fileContent += script
 					fileContent = vueFormatter(fileContent)
 					fs.writeFile(filepath, fileContent, (err) => {

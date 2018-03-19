@@ -1,6 +1,10 @@
 {
     "node": "layout",
     "type": "container",
+    "meta": {
+        "title": "Home",
+        "description": "This is the meta description for the home page"
+    },
     "children": [
         {
             "node": "container",

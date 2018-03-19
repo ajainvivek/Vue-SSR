@@ -8,7 +8,8 @@ const config = {
 	"brace_style": "collapse,preserve-inline",
 	"jslint_happy": true,
 	"keep_array_indentation": true,
-	"max_preserve_newlines": 3
+	"max_preserve_newlines": 3,
+	"indent_with_tabs": true
 }
 
 const beautify = require("js-beautify")

@@ -28,7 +28,7 @@
                         },
                         "children": [{
                             "node": "component",
-                            "type": "button",
+                            "type": "appHeader",
                             "content": "Generated Button",
                             "properties": {
                                 "type": "primary"

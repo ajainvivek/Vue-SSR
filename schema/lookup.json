@@ -6,5 +6,6 @@
     "aside": "el-aside",
     "button": "el-button",
     "col": "el-col",
-    "row": "el-row"
+    "row": "el-row",
+    "appHeader": "cv-app-header"
 }

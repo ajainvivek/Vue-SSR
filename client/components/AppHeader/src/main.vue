@@ -2,12 +2,12 @@
     <header class="AppHeader" :style="headerStyle">
         <div class="AppHeader__logo">
         	<router-link class="AppHeader__link" to="/">
-				<div v-if="logo">
-					<img class="AppHeader__img" :src="logo" :alt="title" />
+				<div v-if="global.logo">
+					<img class="AppHeader__img" :src="global.logo" :alt="title" />
 				</div>
 				<div v-else>
 					<h1 class="AppHeader__title" :style="titleStyle">
-						{{data.title}}
+						{{global.title}}
 					</h1>	
 				</div>
         	</router-link>
@@ -78,24 +78,17 @@ export default {
 				backgroundColor: primaryColor,
 				borderColor: primaryColor
 			}
-		},
-		data() {
-			const { global } = this.$store.state
-			return {
-				logo: "",
-				title: global.companyName
-			}
 		}
 	},
 	props: {
-		data: {
-			logo: {
-				type: String,
-				default: ""
-			},
-			title: {
-				type: String,
-				default: "Company Title"
+		global: {
+			type: Object,
+			default: function() {
+				const { global } = this.$store.state
+				return {
+					logo: "",
+					title: global.companyName
+				}
 			}
 		},
 		theme: {

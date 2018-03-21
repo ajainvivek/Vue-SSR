@@ -63,7 +63,9 @@ const constructTemplate = function(dom, template, root) {
 	if (template.properties) {
 		const properties = Object.keys(template.properties)
 		for (let i = 0; i < properties.length; i++) {
-			element.firstChild.setAttribute([properties[i]], template.properties[properties[i]])
+			let value = template.properties[properties[i]]
+			value = typeof value === "object" ? JSON.stringify(value) : value
+			element.firstChild.setAttribute([properties[i]], value)
 		}
 	}
 	// Add inner html, if content exist

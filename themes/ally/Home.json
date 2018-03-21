@@ -28,15 +28,40 @@
                         },
                         "children": [{
                             "node": "component",
-                            "type": "appHeader",
-                            "content": "Generated Button",
-                            "properties": {
-                                "type": "primary"
-                            }
+                            "type": "appHeader"
                         }]
                     }]
                 }
             ]
+        },
+        {
+            "node": "container",
+            "type": "main",
+            "properties": {
+                ":gutter": 10,
+                ":style": {
+                    "backgroundColor": "#efeff4"
+                }
+            },
+            "children": [{
+                "node": "col",
+                "type": "row",
+                "properties": {
+                    ":xs": 12,
+                    ":sm": 8,
+                    ":md": 4,
+                    ":lg": 3,
+                    ":xl": 1
+                },
+                "children": [{
+                    "node": "component",
+                    "type": "button",
+                    "content": "Generated Button",
+                    "properties": {
+                        "type": "primary"
+                    }
+                }]
+            }]
         }
     ]
 }

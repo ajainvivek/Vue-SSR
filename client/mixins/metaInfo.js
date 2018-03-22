@@ -1,4 +1,10 @@
-function getMeta(vm) {
+/**
+ * @description Retrieve meta information for the page
+ *
+ * @param {Object} vm - context
+ * @return {*} meta - meta info
+ */
+function getMeta (vm) {
 	const { meta } = vm.$options
 	if (meta) {
 		return typeof meta === "function"
@@ -10,7 +16,7 @@ function getMeta(vm) {
 }
 
 const serverMetaInfoMixin = {
-	created() {
+	created () {
 		const meta = getMeta(this)
 		if (meta) {
 			this.$ssrContext.meta = meta
@@ -19,7 +25,7 @@ const serverMetaInfoMixin = {
 }
 
 const clientMetaInfoMixin = {
-	mounted() {
+	mounted () {
 		const meta = getMeta(this)
 		if (meta) {
 			document.title = `${meta.title} - SiteName`

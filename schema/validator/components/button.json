@@ -1,0 +1,8 @@
+{
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["primary", "success", "info", "warning", "danger"]
+    }
+  }
+}

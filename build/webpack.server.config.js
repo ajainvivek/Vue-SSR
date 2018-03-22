@@ -13,6 +13,9 @@ module.exports = merge(base, {
 	},
 	externals: Object.keys(require("../package.json").dependencies),
 	plugins: [
+		new webpack.LoaderOptionsPlugin({
+			debug: true
+		}),
 		new webpack.DefinePlugin({
 			"process.env.VUE_ENV": "'server'"
 		}),

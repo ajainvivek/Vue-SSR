@@ -1,15 +1,15 @@
 // import Vue from "vue"
 
 export const mutations = {
-	SET_COUNTER(state, { value }) {
+	SET_COUNTER (state, { value }) {
 		state.counter = value
 	},
 
-	SET_REMOTE_PAGE_CONTENT(state, { content }) {
+	SET_REMOTE_PAGE_CONTENT (state, { content }) {
 		state.remotePageContent = content
 	},
 
-	SET_ERROR(state, { error }) {
+	SET_ERROR (state, { error }) {
 		if (typeof error !== Object) {
 			state.error = error
 		} else {
@@ -17,7 +17,7 @@ export const mutations = {
 		}
 	},
 
-	CLEAR_ERROR(state) {
+	CLEAR_ERROR (state) {
 		state.error = null
 	}
 

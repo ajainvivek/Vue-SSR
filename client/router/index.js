@@ -10,7 +10,10 @@ import Home from "views/Home" // include in the main bundle
 const NotFound = () => System.import("views/NotFound") // load dynamically when needed
 
 let routes = [
-	{ path: "/", component: Home }
+	{
+		path: "/", component: Home,
+		path: "/:theme", component: Home
+	}
 ]
 
 if (process.env.NODE_ENV !== "production") {
@@ -24,7 +27,12 @@ if (process.env.NODE_ENV !== "production") {
 // push as last element because the wildcard match will catch all the unknown urls
 routes.push({ path: "*", component: NotFound })
 
-export function createRouter() {
+/**
+ * @description Create vue router to handle browser history changes
+ *
+ * @return {Object} - route
+ */
+export function createRouter () {
 	return new Router({
 		mode: "history",
 		scrollBehavior: () => ({ y: 0 }),

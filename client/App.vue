@@ -1,7 +1,6 @@
 <template lang="pug">
 	#app.App(:class="{ 'App--rtl': isRTL }")
 		noscript Your browser does not have JS enabled, you are still able to browse the website but you won't be able to access advanced features such as editing or loggin-in.
-		AppHeader
 		transition(name="fade", mode="out-in")
 			router-view.view
 
@@ -30,13 +29,9 @@ noscript {
 </style>
 
 <script>
-import AppHeader from "components/AppHeader"
 
 export default {
 	name: "App",
-	components: {
-		AppHeader
-	},
 	data: () => {
 		return {
 			isRTL: LANGUAGE_ISRTL

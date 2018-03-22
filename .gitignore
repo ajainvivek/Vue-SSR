@@ -8,3 +8,14 @@ test/unit/coverage
 phantomjsdriver.log
 yarn.lock
 yarn-error.log
+.env
+/server/**/*.js.map
+/server/**/*.js
+
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json

@@ -48,8 +48,14 @@ module.exports = {
 		"indent": ["error", "tab"],
 		"no-tabs": 0,
 
-		"require-jsdoc": 0,
+		"require-jsdoc": 1,
 
-		"new-cap": ["error", { "capIsNew": false }]
+		"new-cap": ["error", { "capIsNew": false }],
+
+		"space-before-function-paren": ["error", {
+			"anonymous": "ignore",
+			"named": "ignore",
+			"asyncArrow": "ignore"
+		}]
 	}
 }

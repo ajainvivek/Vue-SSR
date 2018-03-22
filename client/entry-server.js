@@ -36,7 +36,27 @@ export default (context) => {
 				// inline the state in the HTML response. This allows the client-side
 				// store to pick-up the server-side state without having to duplicate
 				// the initial data fetching on the client.
-				context.state = store.state
+				context.state = Object.assign(store.state, {
+					theme: {
+						primaryColor: "#000000",
+						secondaryColor: "#232E39",
+						tertiaryColor: "#ffffff",
+						backgroundColor: "#efeff4"
+					},
+					page: {
+						home: {
+							banner: {
+								title: "Welcome to Travelmate",
+								subTitle: "Relax and let your troubles fade away"
+							}
+						}
+					},
+					global: {
+						companyName: "Travelmate",
+						contactNumber: "61 (07) 4946 7139",
+						bookingLink: "https://www.thebookingbutton.com.au/properties/cowracountrydirect"
+					}
+				})
 				resolve(app)
 			}).catch(reject)
 		}, reject)

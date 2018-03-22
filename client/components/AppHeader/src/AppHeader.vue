@@ -2,12 +2,12 @@
     <header class="AppHeader" :style="headerStyle">
         <div class="AppHeader__logo">
         	<router-link class="AppHeader__link" to="/">
-				<div v-if="global.logo">
-					<img class="AppHeader__img" :src="global.logo" :alt="title" />
+				<div v-if="content.logo">
+					<img class="AppHeader__img" :src="content.logo" :alt="content.title" />
 				</div>
 				<div v-else>
 					<h1 class="AppHeader__title" :style="titleStyle">
-						{{global.title}}
+						{{content.title}}
 					</h1>	
 				</div>
         	</router-link>
@@ -55,6 +55,9 @@
 }
 </style>
 
+/**
+ * Header 
+ */
 <script>
 export default {
 	name: "CvAppHeader",
@@ -78,18 +81,18 @@ export default {
 				backgroundColor: primaryColor,
 				borderColor: primaryColor
 			}
+		},
+		content () {
+			const { logo, companyName } = this.global
+			return {
+				logo,
+				title: companyName
+			}
 		}
 	},
 	props: {
 		global: {
-			type: Object,
-			default: function () {
-				const { global } = this.global
-				return {
-					logo: "",
-					title: global.companyName
-				}
-			}
+			type: Object
 		},
 		theme: {
 			type: Object

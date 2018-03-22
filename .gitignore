@@ -8,3 +8,4 @@ test/unit/coverage
 phantomjsdriver.log
 yarn.lock
 yarn-error.log
+.env

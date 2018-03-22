@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "sourceMap": true,
+        "module": "commonjs",
+		"target": "es2017",
+		"strict": true,
+		"moduleResolution": "node",
+		"noImplicitAny": false
+    },
+    "include": [
+        "server/**/*"
+	],
+	"files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/node_modules": true,
+        "**/*.js": {
+            "when": "$(basename).ts"
+        },
+        "**/*.js.map": true
+    }
+}

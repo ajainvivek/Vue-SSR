@@ -1,4 +1,4 @@
-Basic App Header:
+Default Header:
 
 ```vue
 <template>
@@ -28,6 +28,10 @@ export default {
 ```json
 	{
 		"node": "component",
-		"type": "header"
+		"type": "header",
+		"properties": {
+			":theme": "theme",
+			":global": "global"
+		}
 	}
 ```

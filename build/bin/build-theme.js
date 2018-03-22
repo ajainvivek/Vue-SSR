@@ -20,7 +20,15 @@ const config = {
 	"eol": "\n"
 }
 
-function getCode(code, block, expReg) {
+/**
+ * @description Generate the vue code block for template, style & typescript
+ *
+ * @param {String} code - code block to be formatted
+ * @param {String} block - type of the block i.e template, script, style
+ * @param {String} expReg - regex
+ * @return {String} - formatted code
+ */
+function getCode (code, block, expReg) {
 	let split = code.split(expReg, 4)
 	let match = code.match(expReg)
 	if (!match) {
@@ -45,7 +53,13 @@ function getCode(code, block, expReg) {
 	return match[0] + split[2] + match[1]
 }
 
-const vueFormatter = function(text) {
+/**
+ * @description format the generated vue code
+ *
+ * @param {String} text - code to be formatted
+ * @return {String} - formatted vue code
+ */
+const vueFormatter = function (text) {
 	if (!text) {
 		return
 	} else {
@@ -56,7 +70,16 @@ const vueFormatter = function(text) {
 	}
 }
 
-const constructTemplate = function(dom, template, root) {
+/**
+ * @description Construct vue template from the json lookup
+ *
+ * @param {Object} dom - jsfom reference
+ * @param {Object} template - json template data
+ * @param {Boolean} root - root node or not
+ *
+ * @return {String} - template string
+ */
+const constructTemplate = function (dom, template, root) {
 	let element = JSDOM.fragment(`<${lookup[template.type]}></${lookup[template.type]}>`)
 
 	// Add attributes to the element, if it exists
@@ -89,7 +112,14 @@ const constructTemplate = function(dom, template, root) {
 	return element
 }
 
-const constructScript = function(view, meta) {
+/**
+ * @description Construct the vue script
+ *
+ * @param {String} view - view name
+ * @param {Object} meta - meta information for the page
+ * @return {String} - formatted vue script
+ */
+const constructScript = function (view, meta) {
 	return `
         <script>
             export default {
@@ -99,13 +129,25 @@ const constructScript = function(view, meta) {
 						title: "${meta.title}",
 						description: "${meta.description}"
 					}
+				},
+				data: function () {
+					return {
+						state: this.$store.state
+					}
 				}				
             }
         </script>
     `
 }
 
-const constructStyle = function(view, style) {
+/**
+ * @description Construct style node
+ *
+ * @param {String} view - name of the view
+ * @param {String} style - style specific to the view
+ * @return {String} - formatted style code
+ */
+const constructStyle = function (view, style) {
 	if (style) {
 		return `
 			<style lang="scss" scoped>
@@ -119,7 +161,10 @@ const constructStyle = function(view, style) {
 	}
 }
 
-const initialize = function() {
+/**
+ * @description initialzie the build theme generator
+ */
+const initialize = function () {
 	const dom = new JSDOM()
 	const themesFolder = "./themes"
 	fs.readdir(themesFolder, (err, files) => {
@@ -151,4 +196,5 @@ const initialize = function() {
 	})
 }
 
+// Initialize build theme generator
 initialize()

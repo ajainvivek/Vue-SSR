@@ -48,7 +48,7 @@ module.exports = {
 		"indent": ["error", "tab"],
 		"no-tabs": 0,
 
-		"require-jsdoc": 0,
+		"require-jsdoc": 1,
 
 		"new-cap": ["error", { "capIsNew": false }],
 

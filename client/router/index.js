@@ -27,6 +27,11 @@ if (process.env.NODE_ENV !== "production") {
 // push as last element because the wildcard match will catch all the unknown urls
 routes.push({ path: "*", component: NotFound })
 
+/**
+ * @description Create vue router to handle browser history changes
+ *
+ * @return {Object} - route
+ */
 export function createRouter () {
 	return new Router({
 		mode: "history",

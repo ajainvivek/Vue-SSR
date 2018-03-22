@@ -1,6 +1,6 @@
 export default {
 	computed: {
-		error() {
+		error () {
 			return this.$store.state.error
 		}
 	}

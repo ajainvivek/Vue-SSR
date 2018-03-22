@@ -50,6 +50,12 @@ module.exports = {
 
 		"require-jsdoc": 0,
 
-		"new-cap": ["error", { "capIsNew": false }]
+		"new-cap": ["error", { "capIsNew": false }],
+
+		"space-before-function-paren": ["error", {
+			"anonymous": "ignore",
+			"named": "ignore",
+			"asyncArrow": "ignore"
+		}]
 	}
 }

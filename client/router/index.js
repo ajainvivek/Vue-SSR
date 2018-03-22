@@ -27,7 +27,7 @@ if (process.env.NODE_ENV !== "production") {
 // push as last element because the wildcard match will catch all the unknown urls
 routes.push({ path: "*", component: NotFound })
 
-export function createRouter() {
+export function createRouter () {
 	return new Router({
 		mode: "history",
 		scrollBehavior: () => ({ y: 0 }),

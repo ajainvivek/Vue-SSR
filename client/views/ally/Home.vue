@@ -4,7 +4,7 @@
 	<el-header>
 		<el-col :gutter="10">
 			<el-row :xs="12" :sm="8" :md="4" :lg="3" :xl="1">
-				<cv-app-header></cv-app-header>
+				<cv-app-header :theme="state.theme" :global="state.global"></cv-app-header>
 			</el-row>
 		</el-col>
 	</el-header>
@@ -23,6 +23,11 @@ export default {
 		return {
 			title: "Home",
 			description: "This is the meta description for the home page"
+		}
+	},
+	data: function () {
+		return {
+			state: this.$store.state
 		}
 	}
 }

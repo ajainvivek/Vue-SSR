@@ -6,7 +6,7 @@ import { mutations } from "./mutations"
 
 Vue.use(Vuex)
 
-export function createStore() {
+export function createStore () {
 	return new Vuex.Store({
 		strict: process.env.NODE_ENV !== "production",
 

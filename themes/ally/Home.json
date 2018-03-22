@@ -5,6 +5,10 @@
         "title": "Home",
         "description": "This is the meta description for the home page"
     },
+    "data": {
+        "theme": "this.$store.state.theme",
+        "global": "this.$store.state.global"
+    },
     "children": [
         {
             "node": "container",
@@ -28,7 +32,11 @@
                         },
                         "children": [{
                             "node": "component",
-                            "type": "appHeader"
+                            "type": "appHeader",
+                            "properties": {
+                                ":theme": "state.theme",
+                                ":global": "state.global"
+                            }
                         }]
                     }]
                 }

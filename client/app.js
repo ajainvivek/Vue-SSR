@@ -31,7 +31,7 @@ const messages = {
 
 // Expose a factory function that creates a fresh set of store, router,
 // app instances on each call (which is called for each SSR request)
-export function createApp(ssrContext) {
+export function createApp (ssrContext) {
 	const i18n = new VueI18n({
 		locale: "main",
 		messages

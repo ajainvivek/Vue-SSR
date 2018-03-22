@@ -4,7 +4,7 @@ import { createApp } from "./app"
 
 // a global mixin that calls `asyncData` when a route component's params change
 Vue.mixin({
-	beforeRouteUpdate(to, from, next) {
+	beforeRouteUpdate (to, from, next) {
 		const { asyncData } = this.$options
 		if (asyncData) {
 			asyncData({
@@ -62,7 +62,7 @@ router.onReady(() => {
 if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
 	navigator.serviceWorker.register("/service-worker.js")
 } else {
-	navigator.serviceWorker.getRegistrations().then(function(registrations) {
+	navigator.serviceWorker.getRegistrations().then(function (registrations) {
 		console.log("Unregistering service workers for development")
 		for (let registration of registrations) {
 			registration.unregister()

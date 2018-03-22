@@ -59,21 +59,21 @@
 export default {
 	name: "CvAppHeader",
 	computed: {
-		headerStyle() {
-			const { primaryColor, tertiaryColor } = this.$store.state.theme
+		headerStyle () {
+			const { primaryColor, tertiaryColor } = this.theme
 			return {
 				backgroundColor: tertiaryColor,
 				borderBottomColor: primaryColor
 			}
 		},
-		titleStyle() {
-			const { primaryColor } = this.$store.state.theme
+		titleStyle () {
+			const { primaryColor } = this.theme
 			return {
 				color: primaryColor
 			}
 		},
-		bookBtnStyle() {
-			const { primaryColor } = this.$store.state.theme
+		bookBtnStyle () {
+			const { primaryColor } = this.theme
 			return {
 				backgroundColor: primaryColor,
 				borderColor: primaryColor
@@ -83,8 +83,8 @@ export default {
 	props: {
 		global: {
 			type: Object,
-			default: function() {
-				const { global } = this.$store.state
+			default: function () {
+				const { global } = this.global
 				return {
 					logo: "",
 					title: global.companyName

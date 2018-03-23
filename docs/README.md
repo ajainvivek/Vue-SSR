@@ -1,4 +1,4 @@
-# Droplet
+# Bloge
 
 Dynamic theme builder using SSR using Vue, NodeJS.
 
@@ -48,8 +48,8 @@ Dynamic theme builder using SSR using Vue, NodeJS.
 Quickstart:
 
 ```
-git clone https://github.com/ajainvivek/droplet
-cd droplet
+git clone https://github.com/ajainvivek/bloge
+cd bloge
 npm install
 npm run dev
 ```

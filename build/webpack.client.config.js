@@ -42,7 +42,7 @@ if (config.isProduction) {
 		}),
 		// auto generate service worker
 		new SWPrecachePlugin({
-			cacheId: "droplet",
+			cacheId: "bloge",
 			filename: "service-worker.js",
 			minify: true,
 
@@ -69,7 +69,7 @@ if (!config.isTesting) {
 		// https://github.com/Narkoleptika/webpack-everything/commit/b7902f60806cf40b9d1abf8d6bb2a094d924fff7
 		new webpack.optimize.CommonsChunkPlugin({
 			name: "vendor",
-			minChunks: function(module) {
+			minChunks: function (module) {
 				return module.context && module.context.indexOf("node_modules") !== -1
 			}
 		}),

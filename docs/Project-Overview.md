@@ -9,8 +9,6 @@
 	* Routing with [vue-router](https://router.vuejs.org/en/)
 	* Store with [vuex](https://vuex.vuejs.org/en/)
 	* Fetching data with [axios](https://github.com/mzabriskie/axios)
-* [Pug](https://pugjs.org/)
-	* For less verbose and easier to read components
 * [Sass](http://sass-lang.com/)
 	* Scss variant
 	* For easier to read styles and also variables and mixins

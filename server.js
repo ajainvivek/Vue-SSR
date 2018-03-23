@@ -8,6 +8,12 @@ const favicon = require("serve-favicon")
 
 const resolve = (file) => path.resolve(__dirname, file)
 
+const dotenv = require("dotenv")
+
+// load environment variables
+dotenv.config()
+
+// TODO: move script config to .env
 const config = require("./config")
 const isProduction = config.isProduction
 

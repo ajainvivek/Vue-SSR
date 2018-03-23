@@ -5,12 +5,14 @@ import * as morgan from "morgan"
 import * as fs from "fs"
 import { WriteStream } from "fs"
 import * as path from "path"
+import { sequelize, initialize } from "./instances/sequelize";
 
 import Routes from "./routes"
 
 export default class Server {
 	constructor(app: Application) {
-        const routes: Routes = new Routes(app);
+                const routes: Routes = new Routes(app);
+                initialize()
 	}
 	
 	public config(app: Application): void {

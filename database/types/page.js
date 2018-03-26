@@ -8,42 +8,42 @@ module.exports = function (Sequelize) {
 		title: Sequelize.STRING,
 		siteId: {
 			type: Sequelize.INTEGER,
-			allowNull: false,
-			references: {
-				model: {
-					tableName: "site",
-					schema: "bloge"
-				},
-				key: "id",
-				onUpdate: "cascade",
-				onDelete: "cascade"
-			}
+			allowNull: false
+			// references: {
+			// 	model: {
+			// 		tableName: "site",
+			// 		schema: "bloge"
+			// 	},
+			// 	key: "id",
+			// 	onUpdate: "cascade",
+			// 	onDelete: "cascade"
+			// }
 		},
 		themeId: {
 			type: Sequelize.INTEGER,
-			allowNull: false,
-			references: {
-				model: {
-					tableName: "theme",
-					schema: "bloge"
-				},
-				key: "id",
-				onUpdate: "cascade",
-				onDelete: "cascade"
-			}
+			allowNull: false
+			// references: {
+			// 	model: {
+			// 		tableName: "theme",
+			// 		schema: "bloge"
+			// 	},
+			// 	key: "id",
+			// 	onUpdate: "cascade",
+			// 	onDelete: "cascade"
+			// }
 		},
 		templateId: {
 			type: Sequelize.INTEGER,
-			allowNull: false,
-			references: {
-				model: {
-					tableName: "template",
-					schema: "bloge"
-				},
-				key: "id",
-				onUpdate: "cascade",
-				onDelete: "cascade"
-			}
+			allowNull: false
+			// references: {
+			// 	model: {
+			// 		tableName: "template",
+			// 		schema: "bloge"
+			// 	},
+			// 	key: "id",
+			// 	onUpdate: "cascade",
+			// 	onDelete: "cascade"
+			// }
 		},
 		template: {
 			type: Sequelize.INTEGER, // Unique template id, only applicable if page is defined

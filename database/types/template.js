@@ -12,16 +12,16 @@ module.exports = function (Sequelize) {
 		},
 		themeId: {
 			type: Sequelize.INTEGER,
-			allowNull: false,
-			references: {
-				model: {
-					tableName: "theme",
-					schema: "bloge"
-				},
-				key: "id",
-				onUpdate: "cascade",
-				onDelete: "cascade"
-			}
+			allowNull: false
+			// references: {
+			// 	model: {
+			// 		tableName: "theme",
+			// 		schema: "bloge"
+			// 	},
+			// 	key: "id",
+			// 	onUpdate: "cascade",
+			// 	onDelete: "cascade"
+			// }
 		},
 		updatedAt: Sequelize.DATE,
 		createdAt: Sequelize.DATE

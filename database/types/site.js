@@ -8,29 +8,29 @@ module.exports = function (Sequelize) {
 		name: Sequelize.STRING,
 		userId: {
 			type: Sequelize.INTEGER,
-			allowNull: false,
-			references: {
-				model: {
-					tableName: "user",
-					schema: "bloge"
-				},
-				key: "id",
-				onUpdate: "cascade",
-				onDelete: "cascade"
-			}
+			allowNull: false
+			// references: {
+			// 	model: {
+			// 		tableName: "user",
+			// 		schema: "bloge"
+			// 	},
+			// 	key: "id",
+			// 	onUpdate: "cascade",
+			// 	onDelete: "cascade"
+			// }
 		},
 		themeId: {
 			type: Sequelize.INTEGER,
-			allowNull: false,
-			references: {
-				model: {
-					tableName: "theme",
-					schema: "bloge"
-				},
-				key: "id",
-				onUpdate: "cascade",
-				onDelete: "cascade"
-			}
+			allowNull: false
+			// references: {
+			// 	model: {
+			// 		tableName: "theme",
+			// 		schema: "bloge"
+			// 	},
+			// 	key: "id",
+			// 	onUpdate: "cascade",
+			// 	onDelete: "cascade"
+			// }
 		},
 		domain: {
 			type: Sequelize.STRING,

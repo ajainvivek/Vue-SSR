@@ -11,6 +11,7 @@ yarn-error.log
 .env
 /server/**/*.js.map
 /server/**/*.js
+/*.js.bak
 
 
 ### VisualStudioCode ###

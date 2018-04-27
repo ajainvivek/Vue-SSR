@@ -9,7 +9,7 @@
 		"string-quotes": "double",
 		"value-keyword-case": "lower",
 		"max-empty-lines": 2,
-		"indentation": "tab",
+		"indentation": null,
 		"no-empty-source": null,
 
 		"scss/at-if-closing-brace-newline-after": "always-last-in-chain",

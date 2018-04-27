@@ -1,12 +1,11 @@
 {
+    "editor.tabSize": 4,
+    // Set the default
     "editor.formatOnSave": false,
+    // Enable per-language
     "[javascript]": {
-        "editor.formatOnSave": true,
-        "editor.tabSize": 4
+        "editor.formatOnSave": true
     },
-    "eslint.autoFixOnSave": true,
-    "eslint.alwaysShowStatus": true,
-    "editor.insertSpaces": false,
     "files.exclude": {
         "server/**/*.js": true,
         "server/**/*.map": true

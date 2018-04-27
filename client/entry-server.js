@@ -1,64 +1,91 @@
-import { createApp } from "./app"
+/* eslint-disable */
 
-const isDev = process.env.NODE_ENV !== "production"
+import { createApp } from "./app";
+
+const isDev = process.env.NODE_ENV !== "production";
 
 // This exported function will be called by `bundleRenderer`.
 // This is where we perform data-prefetching to determine the
 // state of our application before actually rendering it.
 // Since data fetching is async, this function is expected to
 // return a Promise that resolves to the app instance.
-export default (context) => {
-	return new Promise((resolve, reject) => {
-		const s = isDev && Date.now()
-		const { app, router, store } = createApp(context)
+export default context => {
+    return new Promise((resolve, reject) => {
+        const s = isDev && Date.now();
+        const { app, router, store } = createApp(context);
 
-		router.push(context.url)
+        router.push(context.url);
 
-		// wait until router has resolved possible async hooks
-		router.onReady(() => {
-			if (store.state.error) store.commit("CLEAR_ERROR")
+        // wait until router has resolved possible async hooks
+        router.onReady(() => {
+            if (store.state.error) store.commit("CLEAR_ERROR");
 
-			const matchedComponents = router.getMatchedComponents()
-			// Call fetchData hooks on components matched by the route.
-			// A preFetch hook dispatches a store action and returns a Promise,
-			// which is resolved when the action is complete and store state has been
-			// updated.
-			Promise.all(matchedComponents.map((component) => {
-				return component.asyncData && component.asyncData({
-					store,
-					route: router.currentRoute
-				})
-			})).then(() => {
-				isDev && console.log(`data pre-fetch: ${Date.now() - s}ms`)
-				// After all preFetch hooks are resolved, our store is now
-				// filled with the state needed to render the app.
-				// Expose the state on the render context, and let the request handler
-				// inline the state in the HTML response. This allows the client-side
-				// store to pick-up the server-side state without having to duplicate
-				// the initial data fetching on the client.
-				context.state = Object.assign(store.state, {
-					theme: {
-						primaryColor: "#000000",
-						secondaryColor: "#232E39",
-						tertiaryColor: "#ffffff",
-						backgroundColor: "#efeff4"
-					},
-					page: {
-						home: {
-							banner: {
-								title: "Welcome to Travelmate",
-								subTitle: "Relax and let your troubles fade away"
-							}
-						}
-					},
-					global: {
-						companyName: "Travelmate",
-						contactNumber: "61 (07) 4946 7139",
-						bookingLink: "https://www.thebookingbutton.com.au/properties/cowracountrydirect"
-					}
-				})
-				resolve(app)
-			}).catch(reject)
-		}, reject)
-	})
-}
+            const matchedComponents = router.getMatchedComponents();
+            // Call fetchData hooks on components matched by the route.
+            // A preFetch hook dispatches a store action and returns a Promise,
+            // which is resolved when the action is complete and store state has been
+            // updated.
+            Promise.all(
+                matchedComponents.map(component => {
+                    return (
+                        component.asyncData &&
+                        component.asyncData({
+                            store,
+                            route: router.currentRoute
+                        })
+                    );
+                })
+            )
+                .then(() => {
+                    isDev && console.log(`data pre-fetch: ${Date.now() - s}ms`);
+                    // After all preFetch hooks are resolved, our store is now
+                    // filled with the state needed to render the app.
+                    // Expose the state on the render context, and let the request handler
+                    // inline the state in the HTML response. This allows the client-side
+                    // store to pick-up the server-side state without having to duplicate
+                    // the initial data fetching on the client.
+                    context.state = Object.assign(store.state, {
+                        theme: {
+                            primaryColor: "#fcda9a",
+                            secondaryColor: "#000000",
+                            tertiaryColor: "#ffffff",
+                            backgroundColor: "#efeff4",
+                            headerBackgroundColor: "#ffffff",
+                            primaryFontColor: "#000000",
+                            secondaryFontColor: "#ffffff",
+                            primaryButtonColor: "#fcda9a"
+                        },
+                        page: {
+                            home: {
+                                banner: {
+                                    title: "Hey There!",
+                                    subTitle: "I am software developer"
+                                }
+                            }
+                        },
+                        global: {
+                            companyName: "Chaicode",
+                            logo: "",
+                            contactNumber: "61 (07) 4946 7139",
+                            header: {
+                                menu: {
+                                    items: [
+                                        {
+                                            "title": "Home",
+                                            "page": "home"
+                                        },
+                                        {
+                                            "title": "Projects",
+                                            "page": "projects"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    });
+                    resolve(app);
+                })
+                .catch(reject);
+        }, reject);
+    });
+};

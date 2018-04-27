@@ -1,14 +1,16 @@
 @import "declarations";
+@import "theme/default";
 @import "~element-ui/packages/theme-chalk/src/index";
+@import "element-override";
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-	font-family: sans-serif;
+    font-family: sans-serif;
 }
 
 .view {

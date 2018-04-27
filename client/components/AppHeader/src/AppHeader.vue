@@ -2,21 +2,23 @@
     <header class="AppHeader" :style="headerStyle">
         <div class="AppHeader__logo">
         	<router-link class="AppHeader__link" to="/">
-				<div v-if="content.logo">
+				<div v-if="logoIsPresent">
 					<img class="AppHeader__img" :src="content.logo" :alt="content.title" />
 				</div>
 				<div v-else>
 					<h1 class="AppHeader__title" :style="titleStyle">
 						{{content.title}}
-					</h1>	
+					</h1>
 				</div>
         	</router-link>
         </div>
 		<div class="AppHeader__right">
-			<el-button type="primary" :style="bookBtnStyle">
-				Book Now
-			</el-button>
-		</div>   
+			<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" :style="menuStyle">
+				<template v-for="option in menuOptions">
+					<el-menu-item v-bind:key="option.page" v-bind:index="option.index">{{option.title}}</el-menu-item>
+				</template>	
+  			</el-menu>
+		</div>
     </header>
 </template>
 
@@ -31,6 +33,7 @@
 
 	&__logo {
 		float: left;
+		height: 60px;
 	}
 
 	&__link {
@@ -40,13 +43,13 @@
 
 	&__img {
 		vertical-align: middle;
-		width: 2.5rem;
 		margin-right: 0.5rem;
+		height: 60px;
 	}
 
 	&__title {
 		font-weight: 400;
-		text-transform: uppercase;
+		line-height: 60px;
 	}
 
 	&__right {
@@ -56,30 +59,42 @@
 </style>
 
 /**
- * Header 
+ * Header
  */
 <script>
+import { isEmpty } from "lodash"
+
 export default {
+	props: {
+		global: {
+			type: Object
+		},
+		theme: {
+			type: Object
+		}
+	},
 	name: "CvAppHeader",
+	activeIndex: 1,
 	computed: {
 		headerStyle () {
-			const { primaryColor, tertiaryColor } = this.theme
+			const { primaryColor, headerBackgroundColor } = this.theme
 			return {
-				backgroundColor: tertiaryColor,
+				backgroundColor: headerBackgroundColor,
 				borderBottomColor: primaryColor
 			}
 		},
 		titleStyle () {
-			const { primaryColor } = this.theme
+			const { primaryFontColor } = this.theme
 			return {
-				color: primaryColor
+				color: primaryFontColor
 			}
 		},
-		bookBtnStyle () {
-			const { primaryColor } = this.theme
+		navBtnStyle () {
+			const { primaryButtonColor, secondaryFontColor } = this.theme
 			return {
-				backgroundColor: primaryColor,
-				borderColor: primaryColor
+				backgroundColor: primaryButtonColor,
+				borderColor: primaryButtonColor,
+				color: secondaryFontColor
 			}
 		},
 		content () {
@@ -88,15 +103,31 @@ export default {
 				logo,
 				title: companyName
 			}
+		},
+		logoIsPresent () {
+			const { logo } = this.global
+			return !isEmpty(logo)
+		},
+		menuStyle () {
+			const { headerBackgroundColor } = this.theme
+			return {
+				backgroundColor: headerBackgroundColor
+			}
+		},
+		menuOptions () {
+			const { header } = this.global
+			if (header && header.menu && header.menu.items) {
+				return header.menu.items.map((item, index) => {
+					return {
+						index,
+						title: item.title,
+						page: item.page
+					}
+				})
+			}
+			return []
 		}
 	},
-	props: {
-		global: {
-			type: Object
-		},
-		theme: {
-			type: Object
-		}
-	}
+	handleSelect () {}
 }
 </script>

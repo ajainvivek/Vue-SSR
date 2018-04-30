@@ -10,20 +10,42 @@ Default Header:
 export default {
 	name: 'AppHeader',
 	data: function () {
-		return { theme: {
-			primaryColor: "#000000",
-			secondaryColor: "#232E39",
-			tertiaryColor: "#efeff4"
-		}, global: {
-			companyName: "Travelmate",
-			contactNumber: "61 (07) 4946 7139",
-			bookingLink: "https://www.thebookingbutton.com.au/properties/cowracountrydirect"
-		}}
+		return {
+			theme: {
+				primaryColor: "#fcda9a",
+				secondaryColor: "#000000",
+				tertiaryColor: "#ffffff",
+				backgroundColor: "#efeff4",
+				headerBackgroundColor: "#ffffff",
+				primaryFontColor: "#000000",
+				secondaryFontColor: "#ffffff",
+				primaryButtonColor: "#fcda9a"
+			},
+			global: {
+				companyName: "Chaicode",
+				logo: "",
+				contactNumber: "61 (07) 4946 7139",
+				header: {
+					menu: {
+						items: [
+							{
+								"title": "Home",
+								"page": "home"
+							},
+							{
+								"title": "Projects",
+								"page": "projects"
+							}
+						]
+					}
+				}
+			}
+		}
 	}
 }
 </script>
 ```
-##### Theme Generator Usage:
+##### Component Generator Usage:
 
 ```json
 	{

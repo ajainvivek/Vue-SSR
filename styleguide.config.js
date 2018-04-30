@@ -1,6 +1,10 @@
 module.exports = {
-	components: "client/components/**/*.vue",
+	title: "Bloge",
+	navigation: true,
 	defaultExample: true,
+	ribbon: {
+		url: 'https://github.com/ajainvivek/bloge',
+	},
 	require: [
 		"./styleguide/scripts.js",
 		"./node_modules/element-ui/packages/theme-chalk/lib/index.css"
@@ -12,9 +16,27 @@ module.exports = {
 		border: "#e0d2de",
 		font: ["Helvetica", "sans-serif"]
 	},
-	sections: [{
-		name: "Writing Components", content: "./docs/Components.md"
-	}],
+	sections: [
+		{
+			name: 'Project Overview',
+			content: './docs/Project-Overview.md',
+		},
+		{
+			name: 'Components',
+			sections: [
+				{
+					name: 'App Header',
+					content: './client/components/AppHeader/src/README.md',
+					component: './client/components/AppHeader/src/AppHeader.vue'
+				},
+				{
+					name: 'Banner',
+					content: './client/components/Banner/src/README.md',
+					component: './client/components/Banner/src/Banner.vue'
+				},
+			]
+		},
+	],
 	webpackConfig: {
 		module: {
 			rules: [
@@ -28,6 +50,10 @@ module.exports = {
 						{ loader: "style-loader" },
 						{ loader: "css-loader" }
 					]
+				},
+				{
+					test: /\.scss$/,
+					use: ['style-loader', 'css-loader', 'sass-loader'],
 				},
 				{
 					test: /\.(png|jpe?g|gif|svg|ico)(\?.*)?$/,

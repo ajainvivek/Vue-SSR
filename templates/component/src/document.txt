@@ -1,14 +1,14 @@
-Default Banner:
+Default {{ properCase name }}:
 
 ```vue
 <template>
     <div>
-        <bg-banner :theme="theme"></bg-banner>
+        <bg-{{snakeCase name}} :theme="theme"></bg-{{snakeCase name}}>
     </div>
 </template>
 <script>
 export default {
-	name: 'Banner',
+	name: '{{ properCase name }}',
 	data: function () {
 		return { theme: {
 			primaryColor: "#000000",
@@ -24,7 +24,7 @@ export default {
 ```json
 	{
 		"node": "component",
-		"type": "banner",
+		"type": "{{camelCase name}}",
 		"properties": {
 			":theme": "theme"
 		}

@@ -1,4 +1,4 @@
-import AppHeader from "./src/AppHeader"
+import AppHeader from "./src/AppHeader.vue"
 
 /* istanbul ignore next */
 AppHeader.install = function (Vue) {

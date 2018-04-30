@@ -10,6 +10,7 @@
     "watch:server": "tsc -w",
     "debug": "nodemon --inspect server",
     "build:theme": "node build/bin/build-theme.js",
+    "generate-component": "plop component",
     "styleguide": "vue-styleguidist server",
     "styleguide:build": "vue-styleguidist build",
     "start": "cross-env NODE_ENV=production node server",
@@ -73,6 +74,7 @@
     "node-polyglot": "^2.2.2",
     "node-sass": "^4.5.3",
     "phantomjs-prebuilt": "^2.1.14",
+    "plop": "^2.0.0",
     "postcss-loader": "^2.0.6",
     "pug": "^2.0.0-rc.3",
     "rimraf": "^2.6.1",
@@ -94,6 +96,7 @@
     "typescript": "^2.7.2",
     "url-loader": "^0.6.2",
     "vue-loader": "^13.0.2",
+    "vue-styleguidist": "^1.7.6",
     "vue-template-compiler": "^2.5.16",
     "webpack": "^3.4.1",
     "webpack-dev-middleware": "^1.12.0",
@@ -120,7 +123,6 @@
     "vue-i18n": "^7.1.0",
     "vue-router": "^2.7.0",
     "vue-server-renderer": "^2.4.2",
-    "vue-styleguidist": "^1.5.0",
     "vuex": "^2.2.1",
     "vuex-router-sync": "^4.2.0"
   }

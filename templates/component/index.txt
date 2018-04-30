@@ -1,0 +1,8 @@
+import {{ properCase name }} from "./src/{{ properCase name }}.vue"
+
+/* istanbul ignore next */
+{{ properCase name }}.install = function (Vue) {
+	Vue.component({{ properCase name }}.name, {{ properCase name }})
+}
+
+export default {{ properCase name }}

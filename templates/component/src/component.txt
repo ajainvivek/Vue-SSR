@@ -1,0 +1,29 @@
+<template>
+    <div class="{{ properCase name }}">
+        {{ properCase name }} Component
+    </div>
+</template>
+
+<style lang="scss">
+.{{ properCase name }} {
+	display: flex;
+}
+</style>
+
+/**
+ * {{ properCase name }}
+ */
+<script>
+export default {
+	name: "Bg{{ properCase name }}",
+	props: {
+		theme: {
+			type: Object
+		}
+	},
+	computed: {
+	},
+	methods: {
+	}
+}
+</script>

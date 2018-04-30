@@ -13,9 +13,9 @@
         	</router-link>
         </div>
 		<div class="AppHeader__right">
-			<el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect" :style="menuStyle">
+			<el-menu :default-active="activePage" class="el-menu-demo" mode="horizontal" @select="handleSelect" :style="menuStyle">
 				<template v-for="option in menuOptions">
-					<el-menu-item v-bind:key="option.page" v-bind:index="option.index">{{option.title}}</el-menu-item>
+					<el-menu-item v-bind:key="option.page" v-bind:index="option.page">{{option.title}}</el-menu-item>
 				</template>	
   			</el-menu>
 		</div>
@@ -65,6 +65,7 @@
 import { isEmpty } from "lodash"
 
 export default {
+	name: "CvAppHeader",
 	props: {
 		global: {
 			type: Object
@@ -73,8 +74,6 @@ export default {
 			type: Object
 		}
 	},
-	name: "CvAppHeader",
-	activeIndex: 1,
 	computed: {
 		headerStyle () {
 			const { primaryColor, headerBackgroundColor } = this.theme
@@ -126,8 +125,15 @@ export default {
 				})
 			}
 			return []
+		},
+		activePage () {
+			return "home"
 		}
 	},
-	handleSelect () {}
+	methods: {
+		handleSelect (data) {
+			console.log(data)
+		}
+	}
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <header class="AppHeader" :style="headerStyle">
         <div class="AppHeader__logo">
-        	<router-link class="AppHeader__link" to="/">
+        	<div class="AppHeader__link" @click="handleLogoClick">
 				<div v-if="logoIsPresent">
 					<img class="AppHeader__img" :src="content.logo" :alt="content.title" />
 				</div>
@@ -10,7 +10,7 @@
 						{{content.title}}
 					</h1>
 				</div>
-        	</router-link>
+        	</div>
         </div>
 		<div class="AppHeader__right">
 			<el-menu :default-active="activePage" class="el-menu-demo" mode="horizontal" @select="handleSelect" :style="menuStyle">
@@ -34,6 +34,7 @@
 	&__logo {
 		float: left;
 		height: 60px;
+		cursor: pointer;
 	}
 
 	&__link {
@@ -131,8 +132,15 @@ export default {
 		}
 	},
 	methods: {
-		handleSelect (data) {
-			console.log(data)
+		handleSelect (link) {
+			if (!isEmpty(this.$router)) {
+				this.$router.push(link)
+			}
+		},
+		handleLogoClick () {
+			if (!isEmpty(this.$router)) {
+				this.$router.push({ path: "/" })
+			}
 		}
 	}
 }

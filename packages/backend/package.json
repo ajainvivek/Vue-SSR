@@ -1,11 +1,10 @@
 {
-  "name": "typescript-express-sequelize",
-  "version": "1.1.2",
-  "description": "Typescript V2 project with Express + Sequelize",
-  "homepage": "https://github.com/maximegris/typescript-express-sequelize",
+  "name": "backend",
+  "version": "0.0.1",
+  "description": "Bloge backend for template generation",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "Ajain Vivek",
+    "email": "ajainvivek07@gmail.com"
   },
   "main": "build/src/server.js",
   "keywords": [

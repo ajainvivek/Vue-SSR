@@ -1,7 +1,8 @@
 {
 	"scripts": {
 		"clean": "lerna clean",
-		"bootstrap": "npm i && lerna bootstrap"
+		"bootstrap": "npm i && lerna bootstrap",
+		"publish": "lerna publish --conventional-commits --changelog-preset angular-bitbucket --skip-npm"
 	},
 	"devDependencies": {
 		"lerna": "^2.11.0"
